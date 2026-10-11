@@ -1,0 +1,54 @@
+/* 1. Base Styles (Thiết lập chung cho mọi màn hình) */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto; /* Căn giữa */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các cột xuống dòng khi không đủ chỗ */
+    justify-content: space-between; /* Căn đều khoảng cách giữa các cột */
+}
+
+.column {
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước cột */
+}
+
+/* 2. Media Queries (Thiết kế cho các kích thước màn hình cụ thể) */
+
+/* Màn hình lớn (PC: từ 1024px trở lên) - Hiển thị 3 cột */
+@media (min-width: 1024px) {
+    .column {
+        flex: 0 0 31.5%; /* Mỗi cột chiếm khoảng 31.5% để vừa 3 cột trên 1 hàng */
+        margin-bottom: 0;
+    }
+}
+
+/* Màn hình trung bình (Tablet: từ 600px đến 1023px) - Hiển thị 2 cột */
+@media (min-width: 600px) and (max-width: 1023px) {
+    .column {
+        flex: 0 0 48%; /* Mỗi cột chiếm khoảng 48% để vừa 2 cột trên 1 hàng */
+        margin-bottom: 15px;
+    }
+}
+
+/* Màn hình nhỏ (Mobile: dưới 600px) - Hiển thị 1 cột */
+@media (max-width: 599px) {
+    .column {
+        flex: 0 0 100%; /* Chiếm trọn 100% chiều rộng, xếp dọc */
+        margin-bottom: 15px;
+    }
+}
